@@ -1,0 +1,49 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: [application/vnd.github.3.patch]
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.7.0 CPython/2.7.8 Darwin/14.1.0]
+    method: GET
+    uri: https://api.github.com/repos/whiskeyriver/ghpick_test/compare/11130ef268026d7a895c01825db34804e2b98df6...27a222596d26ce4097a1d42b1b449505d3d192a2
+  response:
+    body: {string: !!python/unicode "From f322a3b7c276afd0f4a007f327edab0689013c05
+        Mon Sep 17 00:00:00 2001\nFrom: Ryan Parr <parrr@usxxparrrm1.corp.emc.com>\nDate:
+        Mon, 6 Jul 2015 13:42:20 -0700\nSubject: [PATCH 1/2] Change 1\n\n---\n README.md
+        | 2 ++\n 1 file changed, 2 insertions(+)\n\ndiff --git a/README.md b/README.md\nindex
+        a5f10b9..a816e4a 100644\n--- a/README.md\n+++ b/README.md\n@@ -1 +1,3 @@\n
+        # ghpick_test\n+\n+A change.\n\nFrom 27a222596d26ce4097a1d42b1b449505d3d192a2
+        Mon Sep 17 00:00:00 2001\nFrom: Ryan Parr <parrr@usxxparrrm1.corp.emc.com>\nDate:
+        Mon, 6 Jul 2015 13:42:44 -0700\nSubject: [PATCH 2/2] New file.\n\n---\n NewFile.txt
+        | 1 +\n 1 file changed, 1 insertion(+)\n create mode 100644 NewFile.txt\n\ndiff
+        --git a/NewFile.txt b/NewFile.txt\nnew file mode 100644\nindex 0000000..6434b13\n---
+        /dev/null\n+++ b/NewFile.txt\n@@ -0,0 +1 @@\n+This is a new file.\n"}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['private, max-age=60, s-maxage=60']
+      content-length: ['811']
+      content-security-policy: [default-src 'none']
+      content-type: [application/vnd.github.3.patch; charset=utf-8]
+      date: ['Tue, 07 Jul 2015 01:09:50 GMT']
+      etag: ['"cca12154c1c079dc361c177c0c37bd5c"']
+      last-modified: ['Mon, 06 Jul 2015 20:42:44 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3; param=3.patch]
+      x-github-request-id: ['1838FF71:6BF2:607B37D:559B26DD']
+      x-ratelimit-limit: ['5000']
+      x-ratelimit-remaining: ['4942']
+      x-ratelimit-reset: ['1436234244']
+      x-served-by: [d594a23ec74671eba905bf91ef329026]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

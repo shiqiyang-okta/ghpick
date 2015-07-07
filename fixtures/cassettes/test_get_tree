@@ -1,0 +1,45 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.7.0 CPython/2.7.8 Darwin/14.1.0]
+    method: GET
+    uri: https://api.github.com/repos/whiskeyriver/ghpick_test/git/trees/d2639b648021bee4e8ef46306e4117e9bde1d17c
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA6WPQU7DMBBF7+I1ij0ZJ42zq0SXbNgihOx4XFtNiGU7oFL17jjiAiCWTzNP//8b
+        y16zkdm2R2V6OYgWDJGkgZzsUfQkAQ6kjCWwcJjYA9vSXAVfSswj5zqG5hyK30wzrQtPFNfMP33I
+        F7qm8EGJn30M0+WtUC68fvKSiDL/Q+AusPHlxqIuvkY/n46PT6dmsbXMstp6YyBEL2Xlco07m3k1
+        lX626c6BMMoZdNghKqtsJwDRadWhxHZAIgCHuxC+qg7y/yv3Bpn/Ovr+Wrun7X3ShSwbnZ4z3b8B
+        bMUl3Z0BAAA=
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['private, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 06 Jul 2015 19:32:07 GMT']
+      etag: [W/"126e7c8aac2aa21a834d46931af118ea"]
+      last-modified: ['Mon, 06 Jul 2015 17:55:59 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['894575D0:5062:89181B:559AD7B7']
+      x-ratelimit-limit: ['5000']
+      x-ratelimit-remaining: ['4996']
+      x-ratelimit-reset: ['1436213124']
+      x-served-by: [2d7a5e35115884240089368322196939]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

@@ -1,0 +1,43 @@
+interactions:
+- request:
+    body: '{"parents": ["dbf4eb1e4eada9ebfd6f4e587456d51d7d569364"], "message": "test",
+      "tree": "4411d83cb603091d6c3bf4607befc6b2c4e3099b"}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['128']
+      User-Agent: [python-requests/2.7.0 CPython/2.7.8 Darwin/14.1.0]
+    method: POST
+    uri: https://api.github.com/repos/whiskeyriver/ghpick_test/git/commits
+  response:
+    body: {string: !!python/unicode '{"sha":"0dc54282f1a68c5bf9c455df85d7d627decf0fc2","url":"https://api.github.com/repos/whiskeyriver/ghpick_test/git/commits/0dc54282f1a68c5bf9c455df85d7d627decf0fc2","html_url":"https://github.com/whiskeyriver/ghpick_test/commit/0dc54282f1a68c5bf9c455df85d7d627decf0fc2","author":{"name":"Ryan
+        Parr","email":"ryanwparr@gmail.com","date":"2015-07-06T19:36:28Z"},"committer":{"name":"Ryan
+        Parr","email":"ryanwparr@gmail.com","date":"2015-07-06T19:36:28Z"},"tree":{"sha":"4411d83cb603091d6c3bf4607befc6b2c4e3099b","url":"https://api.github.com/repos/whiskeyriver/ghpick_test/git/trees/4411d83cb603091d6c3bf4607befc6b2c4e3099b"},"message":"test","parents":[{"sha":"dbf4eb1e4eada9ebfd6f4e587456d51d7d569364","url":"https://api.github.com/repos/whiskeyriver/ghpick_test/git/commits/dbf4eb1e4eada9ebfd6f4e587456d51d7d569364","html_url":"https://github.com/whiskeyriver/ghpick_test/commit/dbf4eb1e4eada9ebfd6f4e587456d51d7d569364"}]}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['private, max-age=60, s-maxage=60']
+      content-length: ['924']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 06 Jul 2015 19:36:28 GMT']
+      etag: ['"a093fd49159b1d3d8d9567b27e34ad22"']
+      location: ['https://api.github.com/repos/whiskeyriver/ghpick_test/git/commits/0dc54282f1a68c5bf9c455df85d7d627decf0fc2']
+      server: [GitHub.com]
+      status: [201 Created]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['894575D0:751F:3C0CD43:559AD8BC']
+      x-ratelimit-limit: ['5000']
+      x-ratelimit-remaining: ['4995']
+      x-ratelimit-reset: ['1436213124']
+      x-served-by: [139317cebd6caf9cd03889139437f00b]
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+version: 1

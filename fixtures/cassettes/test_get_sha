@@ -1,0 +1,44 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      User-Agent: [python-requests/2.7.0 CPython/2.7.8 Darwin/14.1.0]
+    method: GET
+    uri: https://api.github.com/repos/whiskeyriver/ghpick_test/git/refs/heads/master
+  response:
+    body:
+      string: !!binary |
+        H4sIAAAAAAAAA62OQQ6CMBBF79K1YZBQQC5jynRKKxKazqAhhLtb49KNCzd/M3/ef7tK5FT/TgZP
+        xjLMhoWSOqk13fPFi0TuAUwMxRjEr0OBywyJ4sLw9IEn2lJ4UILRx4DTVYgFcjNXvpnLcCMU1e+K
+        vcn00qKuq65yZ9N0qAd3wVpr6zptW9tUrSV0pcMq68gWKX/k8TnIH/Q+IIafFY7jBbez918uAQAA
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['private, max-age=60, s-maxage=60']
+      content-encoding: [gzip]
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 06 Jul 2015 19:44:13 GMT']
+      etag: [W/"8c8168ca4b58634496bff58016c7a131"]
+      last-modified: ['Mon, 06 Jul 2015 17:55:59 GMT']
+      server: [GitHub.com]
+      status: [200 OK]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['894575D0:506D:534BFC7:559ADA8D']
+      x-poll-interval: ['300']
+      x-ratelimit-limit: ['5000']
+      x-ratelimit-remaining: ['4993']
+      x-ratelimit-reset: ['1436213124']
+      x-served-by: [474556b853193c38f1b14328ce2d1b7d]
+      x-xss-protection: [1; mode=block]
+    status: {code: 200, message: OK}
+version: 1

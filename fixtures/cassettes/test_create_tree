@@ -1,0 +1,41 @@
+interactions:
+- request:
+    body: '{"tree": [{"sha": "a5f10b9fb3f35339d9d50133fa95343283ee11f3", "type": "blob",
+      "mode": "100644", "path": "README_RENAMED.md"}]}'
+    headers:
+      Accept: ['*/*']
+      Accept-Encoding: ['gzip, deflate']
+      Connection: [keep-alive]
+      Content-Length: ['126']
+      User-Agent: [python-requests/2.7.0 CPython/2.7.8 Darwin/14.1.0]
+    method: POST
+    uri: https://api.github.com/repos/whiskeyriver/ghpick_test/git/trees
+  response:
+    body: {string: !!python/unicode '{"sha":"4411d83cb603091d6c3bf4607befc6b2c4e3099b","url":"https://api.github.com/repos/whiskeyriver/ghpick_test/git/trees/4411d83cb603091d6c3bf4607befc6b2c4e3099b","tree":[{"path":"README_RENAMED.md","mode":"100644","type":"blob","sha":"a5f10b9fb3f35339d9d50133fa95343283ee11f3","size":14,"url":"https://api.github.com/repos/whiskeyriver/ghpick_test/git/blobs/a5f10b9fb3f35339d9d50133fa95343283ee11f3"}],"truncated":false}'}
+    headers:
+      access-control-allow-credentials: ['true']
+      access-control-allow-origin: ['*']
+      access-control-expose-headers: ['ETag, Link, X-GitHub-OTP, X-RateLimit-Limit,
+          X-RateLimit-Remaining, X-RateLimit-Reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes,
+          X-Poll-Interval']
+      cache-control: ['private, max-age=60, s-maxage=60']
+      content-length: ['421']
+      content-security-policy: [default-src 'none']
+      content-type: [application/json; charset=utf-8]
+      date: ['Mon, 06 Jul 2015 19:06:34 GMT']
+      etag: ['"7acb6719acfd84a9df056fd72a403e91"']
+      location: ['https://api.github.com/repos/whiskeyriver/ghpick_test/git/trees/4411d83cb603091d6c3bf4607befc6b2c4e3099b']
+      server: [GitHub.com]
+      status: [201 Created]
+      strict-transport-security: [max-age=31536000; includeSubdomains; preload]
+      x-content-type-options: [nosniff]
+      x-frame-options: [deny]
+      x-github-media-type: [github.v3]
+      x-github-request-id: ['894575D0:506B:3C6DD7B:559AD1BA']
+      x-ratelimit-limit: ['5000']
+      x-ratelimit-remaining: ['4998']
+      x-ratelimit-reset: ['1436213124']
+      x-served-by: [a241e1a8264a6ace03db946c85b92db3]
+      x-xss-protection: [1; mode=block]
+    status: {code: 201, message: Created}
+version: 1
