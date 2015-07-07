@@ -11,11 +11,19 @@ I had a need. I needed to perform cherry-pick patch deliveries without having a 
   from ghpick.cherry import CherryPick
   from ghpick.engine import GithubMergeConflict
   
+  ## For standard users:
   cherry = CherryPick(
       userame='ima_user',
       password='ima_pass',
       org='ima_user',
       repo='ghpick')
+  ## For enterprise users:
+  cherry = CherryPick(
+      username='ima_user',
+      password='ima_pass',
+      org='MyTeam',
+      repo='MyRepo',
+      base_url='https://github.mycompany.com/api/v3')
   try:
     cherry.patch(
         base_sha='7a23...',
