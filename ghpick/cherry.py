@@ -99,10 +99,10 @@ class CherryPick(object):
 
     def _make_patch(self, base_sha, target_sha):
         """ Retrieves the patch file and sends it to the parsers """
-        self.patch = self.engine.compare(base_sha, target_sha, as_patch=True)
+        self.patchdata = self.engine.compare(base_sha, target_sha, as_patch=True)
         self.patchfile = os.path.join(self.cwd, "patch")
         with open(self.patchfile, 'w') as patch:
-            patch.write(self.patch)
+            patch.write(self.patchdata)
         self._make_patch_summary()
         self._build_patch_tree()
         
