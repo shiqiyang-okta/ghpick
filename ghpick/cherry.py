@@ -261,7 +261,7 @@ class CherryPick(object):
                 # sure to take our defaults from the patch entry
                 tree_entry = dict(
                     path=k,
-                    mode=v['mode'] or self.default_file_mode)
+                    mode=v.get('mode', self.default_file_mode))
 
                 entry = self._make_blob(v, tree_entry)
             else:
@@ -271,8 +271,14 @@ class CherryPick(object):
                 else:
                     next_tree = dict(tree=[])
 
+                # For new directories we make sure we take from the
+                # patch entry
+                tree_entry = dict(
+                    path=k,
+                    mode=v.get('mode', self.default_dir_mode))
+
                 new_tree = self._build_tree_recurse(v, next_tree)
-                entry = self._make_tree(v, tree_entries[k], new_tree)
+                entry = self._make_tree(v, tree_entry, new_tree)
 
             if entry is None:
                 tree_entries.pop(k, None)
