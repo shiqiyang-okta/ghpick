@@ -74,6 +74,7 @@ class GithubRequestsEngine(object):
         self.refs_url = "{}/git/refs".format(self.base_url)
         self.blobs_url = "{}/git/blobs".format(self.base_url)
         self.commits_url = "{}/git/commits".format(self.base_url)
+        self.repo_commits_url = "{}/commits".format(self.base_url)
 
     @staticmethod
     def is_valid_sha(sha):
@@ -395,9 +396,9 @@ class GithubRequestsEngine(object):
         ending_sha = self.get_sha(ending_sha)
 
         starting_commit = self.get_commit(starting_sha)
-        starting_time = starting_commit['commit']['committer']['date']
+        starting_time = starting_commit['committer']['date']
 
-        commit_list = self._get(self.commits_url, query_parameters=dict(
+        commit_list = self._get(self.repo_commits_url, query_parameters=dict(
             sha=ending_sha,
             since=starting_time))
 
