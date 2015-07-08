@@ -13,7 +13,7 @@ I had a need. I needed to perform cherry-pick patch deliveries without having a 
   
   ## For standard users:
   cherry = CherryPick(
-      userame='ima_user',
+      username='ima_user',
       password='ima_pass',
       org='ima_user',
       repo='ghpick')
@@ -26,8 +26,8 @@ I had a need. I needed to perform cherry-pick patch deliveries without having a 
       base_url='https://github.mycompany.com/api/v3')
   try:
     cherry.patch(
-        base_sha='7a23...',
-        target_sha='82aa1...',
+        base_sha='7a23...full-sha',
+        target_sha='82aa1...full-sha',
         target_branch='integration_branch_1')
   except GithubMergeConflict as e:
     send_email(to=developer, message="Conflicts: {}".format(e))
@@ -36,6 +36,15 @@ I had a need. I needed to perform cherry-pick patch deliveries without having a 
     print "Commit SHA: {}".format(commit['sha'])
 ```
 Those SHAs you pass in to the patch method can be tags, complete SHAs, or a branch name. If you choose a branch name then it will resolve to the HEAD of that branch.
+
+If you don't pass "message" to the commit method a reasonable default is chosen. You could take advantage of the commits method in the engine to get the list of commits in a range and create a comprehensive message:
+
+```Python
+
+  commits = cherry.engine.commits('7a2b...full-sha','822b...full-sha')
+  message = '\n\n'.join([ c['commit']['message'] for c in commits ])
+  cherry.commit(message=message)
+```
 
 ### Installation
 ```Shell
