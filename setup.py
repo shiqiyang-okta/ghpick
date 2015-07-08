@@ -4,7 +4,7 @@ setup(
     version = "1.0",
     packages = ["ghpick"],
     install_requires = ['requests>=2.7.0'],
-    test_requires = ['vcrpy>=1.6.0','mock>=1.0.1','contextlib2>=0.4.0'],
+    tests_require = ['vcrpy>=1.6.0','mock>=1.0.1','contextlib2>=0.4.0'],
 
     # metadata for upload to PyPI
     author = "Ryan Parr",

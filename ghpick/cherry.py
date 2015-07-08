@@ -251,7 +251,7 @@ class CherryPick(object):
         return self.engine.create_tree(new_tree)
 
     def _build_tree_recurse(self, hash_entry, tree):
-        """ The recursive workhorse the builds the tree """
+        """ The recursive workhorse that builds the tree """
         tree_entries = { x['path']: x for x in tree['tree'] }
         for k,v in hash_entry.iteritems():
             if 'path' in v and isinstance(v['path'], str):
