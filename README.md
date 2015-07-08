@@ -55,4 +55,4 @@ The tests need to be rewritten. Sorry about that, I had a tight deadline.
 As always, use this library at your own risk. Plese test this in your environment before letting it run free since this rebuilds the tree. Luckily you can revert if you have to.
 
 ### Please
-Please file issues if you need, or feel free to email me with any questions. Pull requests certainly welcome, though I don't imagine I'll get those without fixing those tests :)
+Please file issues if you need, or feel free to email me with any questions. Pull requests are welcome.
