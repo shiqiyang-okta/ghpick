@@ -48,11 +48,8 @@ If you don't pass "message" to the commit method a reasonable default is chosen.
 
 ### Installation
 ```Shell
-  git clone https://github.com/whiskeyriver/ghpick
-  cd ghpick
-  python setup.py install
+  pip install ghpick
 ```
-I'll have a pip package up at some point.
 
 ### Requirements
 * git must be installed. The command used to patch the files is "git apply"
