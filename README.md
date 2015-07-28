@@ -55,10 +55,10 @@ If you don't pass "message" to the commit method a reasonable default is chosen.
 * git must be installed. The command used to patch the files is "git apply"
 
 ### Todo
-The tests need to be rewritten. Sorry about that, I had a tight deadline.
+The tests need to be rewritten. 
 
 ### Warnings
-As always, use this library at your own risk. Plese test this in your environment before letting it run free since this rebuilds the tree. Luckily you can revert if you have to.
+As always, use this library at your own risk. Plese test this in your environment before letting it run free since this rebuilds the tree. You can always revert if something goes wrong.
 
 ### Please
 Please file issues if you need, or feel free to email me with any questions. Pull requests are welcome.
