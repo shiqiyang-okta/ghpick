@@ -164,24 +164,6 @@ class GithubRequestsEngine(object):
         item = response.json()
 
         return item
-
-    def _validate_response(self, response):
-        """ Utility to validate response status code """
-        logging.debug("Validating response.")
-        code = response.status_code
-
-        if code not in self.HTTP_EXCEPTIONS:
-            return True
-
-        logging.debug("Status code in Exceptions: {}".format(code))
-        exc = self.HTTP_EXCEPTIONS[code]
-        logging.debug("Raising {}".format(exc))
-        
-        request = response.request
-        logging.error("METHOD: {}".format(request.method))
-        logging.error("URL: {}".format(request.url))
-        logging.error("BODY: {}".format(request.body))
-        raise exc("Message: {}".format(response.text))
     ######
 
     def create_blob(self, contents):
