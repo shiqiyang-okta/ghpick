@@ -1,10 +1,14 @@
 import re
 import json
 import logging
-import urllib3
 import requests
 
-urllib3.disable_warnings()
+try:
+    requests.packages.urllib3.disable_warnings()
+except AttributeError:
+    # Some versions of urllib3 give us difficulty
+    pass
+
 logging.captureWarnings(True)
 
 from base64 import b64encode, b64decode
