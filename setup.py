@@ -1,7 +1,7 @@
 from setuptools import setup
 setup(
-    name = "ghpick",
-    version = "1.0.2",
+    name = "okta-ghpick",
+    version = "1.0.3",
     packages = ["ghpick"],
     install_requires = ['requests>=2.7.0', 'sh>=1.11'],
     tests_require = ['vcrpy>=1.6.0','mock>=1.0.1','contextlib2>=0.4.0'],

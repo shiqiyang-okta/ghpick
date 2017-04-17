@@ -346,7 +346,7 @@ class GithubRequestsEngine(object):
         url = '/'.join((self.commits_url, sha))
         return self._get(url)
 
-    def create_commit(self, message, tree_sha, parents):
+    def create_commit(self, message, tree_sha, parents, author_info):
         """ Creates a commit
 
         Creates a commit that points to the given tree.
@@ -361,6 +361,7 @@ class GithubRequestsEngine(object):
         """
         payload = dict(message=message,
             tree=tree_sha,
+            author=author_info,
             parents=parents)
         return self._post(self.commits_url, data=payload)
 

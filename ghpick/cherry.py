@@ -3,8 +3,9 @@ import re
 import copy
 import logging
 import tempfile
+import datetime
 
-import sh
+import subprocess
 import shutil
 import distutils.dir_util
 
@@ -18,7 +19,7 @@ class CherryPick(object):
     Usage:
         cherry = CherryPick(username=username, password=password,
                             org=organization, repo=repo)
-        cherry.patch(base_sha=sha1, target_sha=sha2, target_branch='rel_1.0_dev')
+        cherry.patch(target_sha=sha2, target_branch='rel_1.0_dev')
         cherry.commit()
 
     For enterprise users:
@@ -58,7 +59,7 @@ class CherryPick(object):
             repo=repo,
             base_url=base_url)
 
-    def patch(self, base_sha, target_sha, target_branch):
+    def patch(self, target_sha, target_branch):
         """ Apply the patch
 
         This will create a temporary directory under $TMPDIR, retrieve
@@ -66,59 +67,61 @@ class CherryPick(object):
         `git apply`.
 
         Params:
-            base_sha (string): The base sha
             target_sha (string): The target sha
             target_branch (string): The branch to make the changes to
 
         Returns:
             True if successful. Otherwise an exception will be raised.
         """
-        self.base_sha = base_sha
         self.target_sha = target_sha
         self.target_branch = target_branch
         self._prepare_workspace()
-        self._make_patch(base_sha, target_sha)
+        self._make_patch(target_sha)
         self._fetch_files()
         return self._apply_patch()
 
     def commit(self, message=None):
-        message = message or \
-            "This is a cherry-pick between {} and {}". \
-            format(self.base_sha, self.target_sha)
         target_tree = self.engine.get_tree(self.target_branch)
         tree = self._build_tree(target_tree)
 
         parent_commit = self.engine.get_commit(self.target_branch)
-        commit = self.engine.create_commit(message,
+        target_commit = self.engine.get_commit(self.target_sha)
+        author = target_commit['author']
+        author['date'] = datetime.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ")
+        commit = self.engine.create_commit(message or target_commit['message'],
                                            tree['sha'],
-                                           [parent_commit['sha']])
+                                           [parent_commit['sha']],
+                                           author)
 
         self._delete_workspace()
         self.engine.point_branch(self.target_branch, commit['sha'])
         return commit
 
-    def _make_patch(self, base_sha, target_sha):
+    def _make_patch(self, target_sha):
         """ Retrieves the patch file and sends it to the parsers """
-        self.patchdata = self.engine.compare(base_sha, target_sha, as_patch=True)
+        parent_commit = self.engine.get_commit(self.target_sha)['parents'][0]['sha']
+        self.patchdata = self.engine.compare(parent_commit, target_sha, as_patch=True)
         self.patchfile = os.path.join(self.cwd, "patch")
         with open(self.patchfile, 'w') as patch:
-            patch.write(self.patchdata)
+            patch.write(self.patchdata.encode('utf-8'))
         self._make_patch_summary()
         self._build_patch_tree()
         
     def _apply_patch(self):
         """ Executes the patch command """
-        output = []
-        try:
-            sh.git('apply',
-                   self.patchfile,
-                   verbose=True,
-                   reject=True,
-                   directory=self.files_base,
-                   _out=lambda a: output.append(a),
-                   _err=lambda a: output.append(a))
-        except sh.ErrorReturnCode as e:
-            exc = GithubMergeConflict('\n'.join(output))
+        child = subprocess.Popen(['git',
+            'apply',
+            '--unsafe-paths',
+            self.patchfile,
+            '--verbose',
+            '--reject',
+            '--directory='+self.files_base], 
+            stdout=subprocess.PIPE,
+            stderr=subprocess.STDOUT,
+            cwd=os.path.dirname(self.patchfile))
+        out = child.communicate()[0]
+        if child.returncode != 0:
+            exc = GithubMergeConflict(out)
             raise exc
 
         # If the only change is deletion git will delete the b
@@ -131,7 +134,8 @@ class CherryPick(object):
     def _prepare_workspace(self):
         """ Creates the required directory structure """
         prefix = '_'.join((self.__class__.__name__, "wd"))
-        self.cwd = tempfile.mkdtemp(prefix=prefix)
+        #avoid symlink
+        self.cwd = os.path.realpath(tempfile.mkdtemp(prefix=prefix))
         self.files_base = os.path.join(self.cwd, 'b')
         os.mkdir(self.files_base)
     
